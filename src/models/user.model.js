@@ -5,7 +5,7 @@ import bcrypt from "bcrypt"
 const userSchema = new Schema(
   {
     username: {
-      type: string,
+      type: String,
       required: true,
       unique: true,
       lowercase: true,
@@ -14,7 +14,7 @@ const userSchema = new Schema(
     },
 
     email: {
-      type: string,
+      type: String,
       required: true,
       unique: true,
       lowercase: true,
@@ -22,17 +22,17 @@ const userSchema = new Schema(
     },
 
     fullname: {
-      type: string,
+      type: String,
       required: true,
       trim: true,
       index: true,
     },
     avatar: {
-      type: string, //cloudinary url
+      type: String, //cloudinary url
       required: true,
     },
     coverImage: {
-      type: string, //cloudinary url
+      type: String, //cloudinary url
     },
     watchHistory:
     [
@@ -42,14 +42,14 @@ const userSchema = new Schema(
         }
     ],
     password:{
-        type:string,
+        type:String,
         required:[true,"pasword is required"]
     },
     refreshToken:{
-        type:string
+        type:String
     }
   },
-  { timestamps }
+  { timestamps:true}
 );
 
 userSchema.pre("save",async function(next){
